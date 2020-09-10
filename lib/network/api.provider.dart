@@ -1,6 +1,6 @@
-import 'package:auth0_client/network/custom.exception.dart';
-import 'package:auth0_client/storage/storage.helper.dart';
-import 'package:auth0_client/storage/storage.keys.dart';
+import 'package:poeta_auth0_client/network/custom.exception.dart';
+import 'package:poeta_auth0_client/storage/storage.helper.dart';
+import 'package:poeta_auth0_client/storage/storage.keys.dart';
 import 'package:http/http.dart' as http;
 import 'dart:io';
 import 'dart:convert';

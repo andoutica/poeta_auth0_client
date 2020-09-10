@@ -1,4 +1,4 @@
-# auth0
+# poeta_auth0_client
 
 A new Flutter library for Poeta Digital can apply Auth0 as soon as possible.
 

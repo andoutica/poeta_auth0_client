@@ -1,4 +1,4 @@
-import 'package:auth0_client/network/auth.service.dart';
+import 'package:poeta_auth0_client/network/auth.service.dart';
 import 'package:flutter_appauth/flutter_appauth.dart';
 
 class AuthRepository {

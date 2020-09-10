@@ -1,4 +1,4 @@
-import 'package:auth0_client/network/api.provider.dart';
+import 'package:poeta_auth0_client/network/api.provider.dart';
 import 'package:flutter_appauth/flutter_appauth.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 

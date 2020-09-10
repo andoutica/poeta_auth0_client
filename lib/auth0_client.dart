@@ -1,7 +1,7 @@
-import 'package:auth0_client/repository/auth.repository.dart';
-import 'package:auth0_client/repository/user.repository.dart';
-import 'package:auth0_client/storage/storage.helper.dart';
-import 'package:auth0_client/storage/storage.keys.dart';
+import 'package:poeta_auth0_client/repository/auth.repository.dart';
+import 'package:poeta_auth0_client/repository/user.repository.dart';
+import 'package:poeta_auth0_client/storage/storage.helper.dart';
+import 'package:poeta_auth0_client/storage/storage.keys.dart';
 import 'package:flutter_appauth/flutter_appauth.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 
