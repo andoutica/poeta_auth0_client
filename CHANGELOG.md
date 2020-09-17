@@ -1,2 +1,4 @@
 ## 0.1.0 
-- Initial release
+- Initial release.
+## 0.1.1 
+- removed unused lib and fixed bugs.
