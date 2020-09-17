@@ -1,7 +1,7 @@
-import 'package:auth0/auth0_client.dart';
 import 'package:auth0_example/login.dart';
 import 'package:auth0_example/profile.dart';
 import 'package:flutter/material.dart';
+import 'package:poeta_auth0_client/auth0_client.dart';
 
 const AUTH0_DOMAIN = 'dev-mpl7u4pn.auth0.com';
 const AUTH0_CLIENT_ID = 'Fg52qlqEGpvTp8C0RvUVk3x5ZHoQMu0q';
