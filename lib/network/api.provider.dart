@@ -1,7 +1,8 @@
+import 'package:dio/dio.dart';
+import 'package:poeta_auth0_client/helpers/http.helper.dart';
 import 'package:poeta_auth0_client/network/custom.exception.dart';
 import 'package:poeta_auth0_client/storage/storage.helper.dart';
 import 'package:poeta_auth0_client/storage/storage.keys.dart';
-import 'package:http/http.dart' as http;
 import 'dart:io';
 import 'dart:convert';
 import 'dart:async';
@@ -36,7 +37,8 @@ class ApiProvider {
   Future<dynamic> get(String url) async {
     var responseJson;
     try {
-      final response = await http.get(domain + url);
+
+      final response = await HttpHelper.get(domain + url);
       responseJson = _response(response);
     } on SocketException {
       throw FetchDataException('No Internet connection');
@@ -44,18 +46,18 @@ class ApiProvider {
     return responseJson;
   }
 
-  dynamic _response(http.Response response) {
+  dynamic _response(Response response) {
     switch (response.statusCode) {
       case 200:
-        var responseJson = json.decode(response.body.toString());
+        var responseJson = json.decode(response.data.toString());
         print(responseJson);
         return responseJson;
       case 400:
-        throw BadRequestException(response.body.toString());
+        throw BadRequestException(response.data.toString());
       case 401:
 
       case 403:
-        throw UnauthorisedException(response.body.toString());
+        throw UnauthorisedException(response.data.toString());
       case 500:
 
       default:

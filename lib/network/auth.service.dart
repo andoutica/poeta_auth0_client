@@ -44,7 +44,10 @@ class AuthService {
           refreshToken: storedRefreshToken,
         ),
       );
-      secureStorage.write(key: 'refresh_token', value: result.refreshToken);
+      if(result.refreshToken ==null || result.refreshToken.isEmpty)
+        secureStorage.write(key: 'refresh_token', value: storedRefreshToken);
+      else
+        secureStorage.write(key: 'refresh_token', value: result.refreshToken);
       secureStorage.write(key: 'access_token', value: result.accessToken);
 
       return result;

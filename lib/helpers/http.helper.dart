@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
@@ -25,12 +27,12 @@ class HttpHelper {
 
   static Future<Response> post(String url, {dynamic body}) async {
     final instance = await _getInstance();
-    return instance.post(url, data: body);
+    return instance.post(url, data: jsonEncode(body));
   }
 
   static Future<Response> put(String url, {dynamic body}) async {
     final instance = await _getInstance();
-    return instance.put(url, data: body);
+    return instance.put(url, data: jsonEncode(body));
   }
 
   static Future<Response> delete(String url, {dynamic body}) async {

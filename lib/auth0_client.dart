@@ -24,13 +24,46 @@ class Auth0Client {
     return _auth0;
   }
 
-  static Future<Map<String, dynamic>> login() async{
+  static Future<String> login() async{
     AuthRepository authRepository = AuthRepository();
     try{
       final isLogged = await authRepository.checkLoggedId();
       TokenResponse tokenResponse;
       if(!isLogged){
          tokenResponse = await authRepository.login();
+      }
+      else {
+        tokenResponse = await authRepository.refreshToken();
+      }
+      return tokenResponse.idToken;
+    }
+    catch(e){
+      throw Exception(e);
+    }
+  }
+
+  static Future<String> refreshToken() async{
+    AuthRepository authRepository = AuthRepository();
+    try{
+      final tokenResponse = await authRepository.refreshToken();
+      if(tokenResponse!=null){
+        return tokenResponse.idToken;
+      }
+      else
+        throw Exception(["The refresh_token is not found."]);
+    }
+    catch(e){
+      throw Exception(e);
+    }
+  }
+
+  static Future<Map<String, dynamic>> loginWithJWT() async{
+    AuthRepository authRepository = AuthRepository();
+    try{
+      final isLogged = await authRepository.checkLoggedId();
+      TokenResponse tokenResponse;
+      if(!isLogged){
+        tokenResponse = await authRepository.login();
       }
       else {
         tokenResponse = await authRepository.refreshToken();
@@ -49,7 +82,7 @@ class Auth0Client {
     }
   }
 
-  static Future<Map<String, dynamic>> refreshToken() async{
+  static Future<Map<String, dynamic>> refreshTokenWithJWT() async{
     AuthRepository authRepository = AuthRepository();
     try{
       final tokenResponse = await authRepository.refreshToken();

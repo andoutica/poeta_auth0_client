@@ -1,11 +1,6 @@
-import 'dart:convert';
-
-import 'package:poeta_auth0_client/network/api.provider.dart';
 import 'package:poeta_auth0_client/network/user.service.dart';
-import 'package:http/http.dart' as http;
 
 class UserRepository {
-
   final UserService api = UserService();
 
   Future<Map<String, dynamic>> getUserDetails() async {
