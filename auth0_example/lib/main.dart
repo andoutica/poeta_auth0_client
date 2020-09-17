@@ -52,7 +52,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> refreshAction() async {
-    final decodedToken = await Auth0Client.refreshToken();
+    final decodedToken = await Auth0Client.refreshTokenWithJWT();
     setState(() {
       isBusy = false;
       isLoggedIn = true;
@@ -63,7 +63,7 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> loginAction() async {
     try {
-      final decodedToken = await Auth0Client.login();
+      final decodedToken = await Auth0Client.loginWithJWT();
       setState(() {
         isBusy = false;
         isLoggedIn = true;
